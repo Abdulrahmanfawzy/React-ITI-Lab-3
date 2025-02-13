@@ -1,0 +1,10 @@
+
+.category{
+    user-select: none;
+    transition: .4s ease-in-out;
+    cursor: pointer;
+}
+
+.category:hover{
+    background: #f9f9f9;
+}
