@@ -28,7 +28,17 @@ export default function Cart() {
   }
 
   function decrease(id){
-    let item = products.map(el=> (el.id == id) ? { ...el , quantity: el.quantity - 1} : el)
+    let item = products.map(el=>{
+      if(el.id == id){
+        if(el.quantity > 1){
+          return {...el , quantity: el.quantity - 1}
+        }else{
+          return {...el , quantity: 1}
+        }
+      }else{
+        return el
+      }
+    })
     setProducts(item);
     window.localStorage.setItem("cart" , JSON.stringify(item))
   }
